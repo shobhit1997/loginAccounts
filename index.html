@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel='stylesheet prefetch' href='css/font-awesome.min.css'>
+	<!--<script type="text/javascript" src="jquery-3.2.1.min.js"></script>-->
+ <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">-->
+
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="jquery.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		#splashscreen {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color:white;
+    z-index: 3;
+    display: 
+}
+	</style>
+	<script type="text/javascript">
+	setTimeout(
+    function() {
+      document.getElementById('splashscreen').style.display='none';
+      //document.getElementById('div2').style.display='none';
+    }, 1000);
+	</script>
+</head>
+<body background="loginbg.jpg">
+
+
+
+
+
+	<div id="splashscreen">
+	    
+	      <img src="00splash.png" height="100%" width="100%" />
+	    
+	    
+	</div>
+
+	
+
+
+
+
+
+
+	<div class="container">
+		<div class="row main">
+			<img src="eni-logoRED.png" class="img-responsive center-block" height="120px" width="120p"><br>
+			<div class="main-login main-center">
+
+
+				<div class="panel-heading panel-local">
+	               <div class="panel-title text-center img-circle">
+	               		<h1 class="title">Sign In</h1>
+	               	</div>
+	            </div> 
+			    <form class="form-horizontal" method="post" action="#">
+						
+						
+
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									
+									<input type="text" class="form-control" name="email" id="email"  placeholder="Email"/>
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+								</div>
+							</div>
+						</div>
+
+						
+
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									
+									<input type="password" class="form-control" name="password" id="password"  placeholder="Password"/>
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+								</div>
+							</div>
+						</div>
+      					<a class="link" href="#">Lost your password?</a>
+      					<br>
+
+
+						<div class="form-group">
+						     <div class="cols-sm-10">
+							     
+						     		<div class="input-group changecolor">	
+								     <select class="form-control " id="sel1" >
+								     	 <option selected disabled>Choose here</option>
+									     <option>1</option>
+									     <option>2</option>
+									     
+								      </select>
+								      
+								      <span class="input-group-addon"><i class="fa fa-caret-down fa-lg abc" aria-hidden="true"></i></span>
+							 	     </div></div>
+							      <br>
+						    
+						
+
+						<div class="form-group text-center">
+							<button type="button" class="btn btn-sm login-button" id="login">Sign in</button>
+						</div>
+						
+					</form>
+				</div>
+		</div>
+	</div>
+
+	<script>
+    $(document).on("click", "#login", function(){
+     var eninovIDTxt=document.getElementById('email').value;
+     var passwordTxt=document.getElementById('password').value;
+   
+   
+
+    var dataString="eninovID="+eninovIDTxt+"&password="+passwordTxt;
+    console.log(dataString);
+    if($.trim(eninovIDTxt).length>0 & $.trim(passwordTxt).length>0)
+ {
+ 
+ $.ajax({
+ type: "POST",
+ url:"http://living-with-pride.in/readAdmin.php",
+ data: dataString,
+ crossDomain: true,
+ cache: false,
+ beforeSend: function(){},
+ success: function(data){
+//alert(data);
+console.log("enetered");
+ if(data=="success")
+ {
+
+location.href = "navi/mainWindow.html";
+
+
+ 
+
+ }
+ else if(data=="error")
+ {
+alert("WRONG CREDENIALS");
+ }
+ }
+ });
+}
+else
+{
+ // alert("Error");
+}
+     
+ });
+
+  </script>
+</body>
+</html>
