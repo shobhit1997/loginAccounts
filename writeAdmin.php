@@ -21,10 +21,10 @@ if ($conn->connect_error) {
 
 $password=$_POST['password'];
 $sql = "INSERT INTO admin (name,eninovID,password) VALUES ('abcd','$eninovID','$password')";
- $q=mysqli_query($conn,$sql);
- if($q)
+ 
+ if($conn->query($sql))
   echo "success";
  else
-  echo  $conn->querry_error;
+  echo  "error";
  
  ?>
