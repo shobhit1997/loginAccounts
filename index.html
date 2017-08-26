@@ -231,7 +231,7 @@ else
  cache: false,
  beforeSend: function(){ $("#login").val('Connecting...');},
  success: function(data){
- if(data=="success")
+ /*if(data=="success")
  {
  alert("inserted");
  $("#login").val('login');
@@ -239,8 +239,15 @@ else
  else if(data=="error")
  {
  alert("error");
- }
- }
+ }*/
+ alert(data);
+ },
+ error:function(){
+alert("Error");
+},
+complete:function(){
+alert("Thank you for your registration you will receive the email with further information soon");
+}
  });
  }return false;
  });
