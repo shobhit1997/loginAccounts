@@ -120,7 +120,7 @@
 	</div>
 
 	<script>
-    $(document).on("click", "#login", function(){
+    /*$(document).on("click", "#login", function(){
      var eninovIDTxt=document.getElementById('email').value;
      var passwordTxt=document.getElementById('password').value;
    
@@ -165,8 +165,33 @@ else
  // alert("Error");
 }
    return false; 
- });
+ });*/
 
   </script>
+   <script>
+$("#login").click(function(){
+var eninovID1 = $("#email").val();
+var password1 = $("#password").val();
+
+if(eninovID1=='' && password1=='')
+{
+alert("Please fill out the form");
+}
+else if(eninovID1=='' && password1!==''){alert('ID field is required')}
+else if(password1=='' && eninovID1!==''){alert('Password field is required')}
+else{
+$.post("http://living-with-pride.in/readAdmin.php", //Required URL of the page on server
+{ // Data Sending With Request To Server
+eninovID:eninovID1,
+password:password1
+},
+function(data){ // Required Callback Function
+	//data = JSON.parse(data);
+	alert(data);
+	console.log(data);
+});
+}
+});
+</script>
 </body>
 </html>

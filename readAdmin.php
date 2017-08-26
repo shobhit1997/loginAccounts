@@ -1,6 +1,17 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+$servername = "mysql.living-with-pride.in";
+$username = "hreninov";
+$password = "January246";
+$dbname = "lwpapj";
 
-include "connectDB.php";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
   
 
  $eninovID=$_POST['eninovID'];
@@ -9,7 +20,7 @@ include "connectDB.php";
 $password=$_POST['password'];
 
 
-/*$sql = "SELECT password FROM admin WHERE eninovID='$eninovID'";
+$sql = "SELECT password FROM admin WHERE eninovID='$eninovID'";
 //$q=mysqli_query($conn,"select * from `admin`");
 $q= mysqli_query($conn,$sql);
 
@@ -36,10 +47,10 @@ $row=mysqli_fetch_assoc($q);
 
  else {
     echo "error";
-}*/
+}
 
 
-$sql = "INSERT INTO admin (name,eninovID,password) VALUES ('abcd','$eninovID','$password')";
+/*$sql = "INSERT INTO admin (name,eninovID,password) VALUES ('abcd','$eninovID','$password')";
 
 
 
@@ -57,7 +68,7 @@ if ($conn->query($sql) === TRUE) {
 //echo "error";
   echo mysqli_error($conn)+"";
 
-}
+}*/
 
 
 $conn->close();
