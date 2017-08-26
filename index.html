@@ -144,32 +144,47 @@ alert(data);
 console.log("enetered");
  if(data=="success")
  {
- 	 alert("success");
-
-location.href = "navi/mainWindow.html";
-
-
-
- 
-
+ 	alert("inserted");
+	location.href = "navi/mainWindow.html";
  }
  else
  {
-alert(data);
+	alert(data);
  }
  }
+ :
  });
 }
 else
 {
- // alert("Error");
+  alert("Error");
 }
    return false; 
  });*/
+</script>
+<script>
+/*function loadDoc() {
+	var eninovIDTxt=document.getElementById('email').value;
+     var passwordTxt=document.getElementById('password').value;
+   
+   
 
-  </script>
+    var dataString="eninovID="+eninovIDTxt+"&password="+passwordTxt;
+  var xhttp = new XMLHttpRequest();
+ 
+  xhttp.open("POST", "http://living-with-pride.in/readAdmin.php", true);
+   xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send(dataString);
+   xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 ) {
+      alert(this.responseText);
+    }
+  };
+}*/
+</script>
+
    <script>
-$("#login").click(function(){
+/*$("#login").click(function(){
 var eninovID1 = $("#email").val();
 var password1 = $("#password").val();
 
@@ -191,6 +206,35 @@ function(data){ // Required Callback Function
 	console.log(data);
 });
 }
+});*/
+</script>
+<script type="text/javascript">
+	
+$(document).ready(function(){
+$("#login").click(function(){
+var email = $("#email").val();
+var password = $("#password").val();
+// Returns successful data submission message when the entered information is stored in database.
+var dataString = 'eninovID='+ email + '&password='+ password;
+if(email==''||password=='')
+{
+alert("Please Fill All Fields");
+}
+else
+{
+// AJAX Code To Submit Form.
+$.ajax({
+type: "POST",
+url: "http://living-with-pride.in/writeAdmin.php",
+data: dataString,
+cache: false,
+success: function(result){
+alert(result);
+}
+});
+}
+return false;
+});
 });
 </script>
 </body>
