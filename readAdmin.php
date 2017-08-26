@@ -67,7 +67,7 @@ if ($conn->query($sql) === TRUE) {
 
 //echo "error";
   //echo mysqli_error($conn)+"";
-    echo "error";
+    echo mysqli_error($conn);
 }
 
 $conn->close();

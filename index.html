@@ -242,8 +242,9 @@ else
  }*/
  alert(data);
  },
- error:function(){
-alert("Error");
+ error:function(error){
+ 	alert(error);
+// alert("Error");
 },
 complete:function(){
 alert("Thank you for your registration you will receive the email with further information soon");
